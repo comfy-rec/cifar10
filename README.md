@@ -42,7 +42,7 @@ data augmentation - rotation, width shift, height shift, horizontal flip
 
 10000 images, 10 classes(airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck)
 
-## Usage
+## usage
 
 ### dnn
 
