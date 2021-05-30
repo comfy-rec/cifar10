@@ -42,8 +42,8 @@ x_test = x_test.astype('float32') / 255
 y_train = to_categorical(y_train, NUM_CLASSES)
 y_test = to_categorical(y_test, NUM_CLASSES)
 
-#모델 정의 부분(DNN)
-#input_layer = Input(shape=(3072,), name='input_tensor')
+# 모델 정의 부분(DNN)
+# input_layer = Input(shape=(3072,), name='input_tensor')
 input_layer = Input(shape=(32, 32, 3))
 x = Flatten()(input_layer)
 x = Dense(units=200, activation='relu')(x)
@@ -51,15 +51,15 @@ x = Dense(units=200, activation='relu')(x)
 output_layer = Dense(units=10, activation='softmax')(x)
 model = Model(inputs=input_layer, outputs=output_layer)
 #################
-#모델 컴파일
+# 모델 컴파일
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.summary()
 #################
-#모델 훈련
+# 모델 훈련
 history = model.fit(x_train, y_train, batch_size=16,
                     epochs=12, verbose=1, validation_split=0.2)
 #################
-#모델 평가
+# 모델 평가
 print('Test start')
 score = model.evaluate(x_test, y_test, batch_size=16)
 print('\nTest loss:', score[0])
